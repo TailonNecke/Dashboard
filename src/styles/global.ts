@@ -8,8 +8,17 @@ export default createGlobalStyle`
         box-sizing: border-box;
         outline: 0;
     }
-
+    html {
+        font-size: 62.5%;
+    }
     body {
+        @media only screen and (max-width: 820px) {
+            background-image: url(${fundo});
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    } 
         background-image: url(${fundo});
         background-size: cover;
         background-repeat: no-repeat;
@@ -21,7 +30,7 @@ export default createGlobalStyle`
 
     body, input, button {
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 16px;
+        font-size: 1.6rem;
     }
 
     h1, h2, h3, h4, h5, h6 {
