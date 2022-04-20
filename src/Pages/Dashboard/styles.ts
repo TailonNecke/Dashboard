@@ -1,10 +1,13 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import logo from "../../imagens/weg-logo.png";
 import wms from "../../imagens/wms.png";
 import grafico from "../../imagens/background-prod.png";
 import graficoNumero from "../../imagens/graficoNumeros.png";
-import val from "../Dashboard/index";
 
+interface ScreenProps {
+  tamanho: boolean,
+  tamanhoMax: boolean,
+};
 
 
 export const Container = styled.div`
@@ -29,8 +32,10 @@ to {background-position:0 0}
  
 `;
 
-export const Dash = styled.div`
-@media only screen and (max-width: 820px) {
+export const Dash = styled.div<ScreenProps>`
+${(props) =>
+    !props.tamanho &&
+    css`   
   
   @keyframes voar {
     0% {
@@ -43,7 +48,7 @@ export const Dash = styled.div`
 
  flex: 1;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
 
   .divSuperior {
     background-color: rgba(0, 0, 0, 0.9);
@@ -570,7 +575,7 @@ export const Dash = styled.div`
   border-right: 0.3vh solid rgba(201, 201, 201, 0.3);
 }
 /* <<<<< DIV CENTRAL */
-} 
+`}
 
 /* ============================================================================================
 
@@ -583,8 +588,13 @@ export const Dash = styled.div`
 
 ===============================================================================================*/
 
+${(props) =>
+    props.tamanho &&
+    css`
+            
+          
 
-  @media only screen and (min-width: 820px) {
+
     height: 98vh;
 width: 99vw;
 position: absolute;
@@ -811,8 +821,8 @@ position: absolute;
 /* DIV CENTRAL >>>>> */
 
 .graficoCentral {
-  height: 35vh;
-  width: 35vh;
+  height: 16.85vw;
+  width: 16.85vw;
   position: absolute;
   top: 35%;
   left: 50%;
@@ -822,7 +832,7 @@ position: absolute;
 .graficoPreparacao {
   margin-top: 13vh;
   height: 35vh;
-  width: 62vh;
+  width: 40vw;
   position: absolute;
   top: 15%;
   left: 50%;
@@ -910,8 +920,8 @@ position: absolute;
  .circle1 {
   position: absolute;
   margin: auto;
-  height: 35vh;
-  width: 35vh;
+  height: 16.85vw;
+  width: 16.85vw;
   border: 0.2vh;
   border-style: dashed solid dashed solid;
   border-radius: 50%;
@@ -919,10 +929,10 @@ position: absolute;
  }
  .circle2 {
   position: absolute;
-  margin-top: 0.4vh;
-  margin-left: 0.6vh;
-  height: 34vh;
-  width: 34vh;
+  margin-top: 0.2vw;
+  margin-left: 0.3vw;
+  height: 16.3vw;
+  width: 16.3vw;
   border: 0.8vh;
   border-style: double;
   border-radius: 50%;
@@ -935,26 +945,26 @@ position: absolute;
   background-repeat: no-repeat;
   border-radius: 50%;
   position: absolute;
-  height: 38vh;
-  width: 38vh;
-  margin-left: -1.4vh;
-  margin-top: -0.6vh;
+  height: 18.2vw;
+  width: 18.2vw;
+  margin-left: -0.7vw;
+  margin-top: -0.3vw;
 }
 
  .progressGraficoMaior{
   overflow:hidden;
   background-color: rgba(0, 255, 0, 0);
   position: absolute;
-  width: 97%;
-  height: 97%;
+  height: 16.3vw;
+  width: 16.3vw;
   border-radius: 50%;
   transform: rotate( -135deg);
-  margin-top: 0.45vh;
-  margin-left: 0.5vh;
+  margin-top: 0.225vw;
+  margin-left: 0.25vw;
 }
 
  .producaoPorcento{
-   font-size: 8vh;
+   font-size: 4vw;
    position: absolute;
    left: 50%;
     margin-right: -50%;
@@ -962,7 +972,7 @@ position: absolute;
     transform: translate(-50%, -50%) 
  }
  .producaoPorcentoDesc{
-   font-size: 2vh;
+   font-size: 1vw;
    position: absolute;
    color: rgba(99, 99, 99, 1);
 
@@ -972,37 +982,37 @@ position: absolute;
     transform: translate(-50%, -50%) 
  }
  .progressBarCenterMaior {
-    stroke-width:10vh ;
-   margin-top: -2.3vh;
-   margin-left:-2.3vh;
+   margin-top: -1.1vw;
+   margin-left:-1.1vw;
    position: absolute;
-   height: 38.5vh;
+   height: 18.5vw;
  }
  .progressGraficoMenor{
   overflow:hidden;
   position: absolute;
-  width: 74.5%;
-  height: 74.5%;
+    width: 12.55vw;
+    height: 12.55vw;
+  width: 12.55vw;
   border-radius: 50%;
   transform: rotate( -135deg);
-  margin-top: 4.45vh;
-  margin-left: 4.5vh;
+  margin-top: 2.2vw;
+  margin-left: 2.2vw;
 }
 
  
  .progressBarCenterMenor {
-   margin-top: -1.5vh;
-   margin-left:-1.5vh;
+   margin-top: -0.75vw;
+   margin-left:-0.75vw;
    text-transform: rotate( 135deg);
    position: absolute;
-   height: 29vh;
+   height: 14vw;
  }
  .circle3 {
   position: absolute;
-  margin-top: 4.5vh;
-  margin-left: 4.5vh;
-  height: 26vh;
-  width: 26vh;
+  margin-top: 2.2vw;
+  margin-left: 2.2vw;
+  height: 12.55vw;
+  width: 12.55vw;
   border: 0.8vh;
   border-style: double;
   border-radius: 50%;
@@ -1011,19 +1021,19 @@ position: absolute;
 }
 .divBarra {
   position: absolute;
-  height: 35vh;
-  width: 35vh;
+  height: 16.85vw;
+  width: 16.85vw;
 }
 .barra{
   box-shadow: 0vh 0em 1vh 0.3vh rgba(194, 251, 252, 0.6);
-  height: 5vh;
-  width: 0.8vh;
+  height: 2.5vw;
+  width: 0.4vw;
   border-radius: 10vh;
   background-color: white;
   position: absolute;
   left: 50%;
   margin-right: -50%;
-  margin-top: 3vh;
+  margin-top: 1.5vw;
   transform: translate(-50%, -50%) 
 }
 
@@ -1032,10 +1042,10 @@ position: absolute;
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  margin-top: 5.5vh;
-  margin-left: 5.5vh;
-  height: 24vh;
-  width: 24vh;
+  margin-top: 2.75vw;
+  margin-left: 2.75vw;
+  height: 11.5vw;
+  width: 11.5vw;
   border: 0.8vh;
   border-radius: 50%;
 }
@@ -1331,6 +1341,6 @@ height: 30%;
   border: 0.3vh solid rgba(201, 201, 201, 0.3);
   box-shadow: 0em 0em 2vh 0.4vh rgba(255, 255, 255, 0.6);
 }
-  } 
-
+  
+`}
 `

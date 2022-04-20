@@ -166,11 +166,25 @@ const Dashboard: React.FC = () => {
         }, 600);
     };
     window.onload = timer;
+    var tamanhoValid
+    var tamanhoMaxValid
+    var altura = window. screen. height;
+    var largura = window. screen. width;
+    if(largura >= altura){
+        tamanhoValid = true 
+    }else{
+        tamanhoValid = false
+    }
 
+    if((altura + (50*(altura/100))) >= largura ){
+        tamanhoMaxValid = true 
+    }else{
+        tamanhoMaxValid = false
+    }
     return (
         <>
             <Container>
-                <Dash>
+                <Dash tamanho={tamanhoValid} tamanhoMax={tamanhoMaxValid}>
                     <div className="divSuperior">
                         <div className="WMS" />
                         <p className="status" style={{ fontSize: `${fontStatus}vw` }}>00:03:00 | OPERANDO | 1123585320</p>
